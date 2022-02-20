@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FumbblApi", "FumbblApi.csproj", "{E36A0881-E3AC-40B9-B9E3-8ED7F7E02712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FumbblApi", "FumbblApi\FumbblApi.csproj", "{950A56F7-FFB9-4C8F-A0A0-811C966934CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FumbblApiTest", "FumbblApiTest\FumbblApiTest.csproj", "{33747ED8-AB69-4B7D-80EF-7B11CC02219D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E36A0881-E3AC-40B9-B9E3-8ED7F7E02712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E36A0881-E3AC-40B9-B9E3-8ED7F7E02712}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E36A0881-E3AC-40B9-B9E3-8ED7F7E02712}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E36A0881-E3AC-40B9-B9E3-8ED7F7E02712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{950A56F7-FFB9-4C8F-A0A0-811C966934CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950A56F7-FFB9-4C8F-A0A0-811C966934CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950A56F7-FFB9-4C8F-A0A0-811C966934CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950A56F7-FFB9-4C8F-A0A0-811C966934CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33747ED8-AB69-4B7D-80EF-7B11CC02219D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33747ED8-AB69-4B7D-80EF-7B11CC02219D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33747ED8-AB69-4B7D-80EF-7B11CC02219D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33747ED8-AB69-4B7D-80EF-7B11CC02219D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
