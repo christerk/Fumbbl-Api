@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Fumbbl.Api.Components
 {
-    public class OAuth
+    public class OAuth : ApiBase
     {
-        private HttpClient _httpClient;
-        private string _apiBase;
-
-        public OAuth(HttpClient httpClient, string apiBase)
+        public OAuth(HttpClient httpClient, string apiBase) : base(httpClient, apiBase)
         {
-            _httpClient = httpClient;
-            _apiBase = apiBase;
         }
 
         public async Task<int> Identity()

@@ -4,17 +4,17 @@ using Xunit;
 namespace FumbblApiTest
 {
     [Collection("Api collection")]
-    public class UnitTest1
+    public class OAuthTests
     {
         private FumbblApi _fumbbl;
 
-        public UnitTest1(ApiFixture fixture)
+        public OAuthTests(ApiFixture fixture)
         {
             _fumbbl = fixture.Fumbbl;
         }
 
         [Fact]
-        public async void Test1()
+        public async void Identity()
         {
             var identity = await _fumbbl.OAuth.Identity();
 

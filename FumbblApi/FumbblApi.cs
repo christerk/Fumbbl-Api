@@ -13,6 +13,7 @@ namespace Fumbbl.Api
         private readonly HttpClient _httpClient;
         private readonly string _apiBase;
 
+        public Coach Coach;
         public OAuth OAuth;
 
         public FumbblApi(IConfiguration config, HttpClient httpClient)
@@ -20,6 +21,7 @@ namespace Fumbbl.Api
             _httpClient = httpClient;
             _apiBase = config["Fumbbl:OAuth:base"];
 
+            Coach = new(_httpClient, _apiBase);
             OAuth = new(_httpClient, _apiBase);
         }
 

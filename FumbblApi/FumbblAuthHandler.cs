@@ -38,7 +38,6 @@ namespace Fumbbl.Api
                 maxAuthAttempts--;
                 if (!_accessTokenExpiry.IsCancellationRequested)
                 {
-                    request.SetToken("Bearer", _accessToken);
                     break;
                 }
                 else if (maxAuthAttempts < 0)
@@ -49,6 +48,8 @@ namespace Fumbbl.Api
                 _logger.LogWarning("Authentication failed, retrying");
                 await Task.Delay(200);
             }
+
+            request.SetToken("Bearer", _accessToken);
 
             return await base.SendAsync(request, cancellationToken);
         }
