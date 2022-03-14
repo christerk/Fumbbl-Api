@@ -6,13 +6,13 @@ namespace Fumbbl.Api
 {
     internal class FumbblAuthHandler : DelegatingHandler
     {
-        private HttpClient _httpClient;
-        private ILogger<FumbblApi> _logger;
-        private string _baseUrl;
-        private string _clientId;
-        private string _clientSecret;
+        private readonly HttpClient _httpClient;
+        private readonly ILogger<FumbblApi> _logger;
+        private readonly string _baseUrl;
+        private readonly string _clientId;
+        private readonly string _clientSecret;
         private string _accessToken = String.Empty;
-        private CancellationTokenSource _accessTokenExpiry = new CancellationTokenSource();
+        private CancellationTokenSource _accessTokenExpiry = new();
 
         public FumbblAuthHandler(IConfiguration config, ILogger<FumbblApi> logger) : base()
         {
@@ -46,7 +46,7 @@ namespace Fumbbl.Api
                     throw new UnauthorizedAccessException("Unable to authorize with Fumbbl API");
                 }
                 _logger.LogWarning("Authentication failed, retrying");
-                await Task.Delay(200);
+                await Task.Delay(200, CancellationToken.None);
             }
 
             request.SetToken("Bearer", _accessToken);
@@ -56,8 +56,7 @@ namespace Fumbbl.Api
 
         private async Task<CancellationTokenSource> Authenticate()
         {
-            var httpClient = new HttpClient();
-            var response = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            var response = await _httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
                 Address = _baseUrl + "/oauth/token",
                 ClientId = _clientId,
