@@ -26,5 +26,7 @@ namespace Fumbbl.Api.DTO
         public string CanLfg { get; set; } = string.Empty;
         public IEnumerable<RaceLogo> RaceLogos { get; set; } = Enumerable.Empty<RaceLogo>();
         public Season? Season { get; set; }
+        public Tournament? Tournament { get; set; }
+        public Options Options { get; set; } = new();
     }
 }

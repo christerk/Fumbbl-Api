@@ -35,7 +35,7 @@ namespace Fumbbl.Api.Components
             if (!response.IsSuccessStatusCode)
             {
                 var message = JsonSerializer.Deserialize<string>(json);
-                throw new Exception(message);
+                return default(T);
             }
 
 
