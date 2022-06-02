@@ -13,8 +13,9 @@ namespace Fumbbl.Api
         private readonly HttpClient _httpClient;
         private readonly string _apiBase;
 
-        public Coach Coach;
-        public OAuth OAuth;
+        public readonly Coach Coach;
+        public readonly OAuth OAuth;
+        public readonly GameState GameState;
 
         public FumbblApi(IConfiguration config, HttpClient httpClient)
         {
@@ -23,6 +24,7 @@ namespace Fumbbl.Api
 
             Coach = new(_httpClient, _apiBase);
             OAuth = new(_httpClient, _apiBase);
+            GameState = new(_httpClient, _apiBase);
         }
 
 
