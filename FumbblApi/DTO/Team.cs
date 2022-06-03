@@ -28,5 +28,6 @@ namespace Fumbbl.Api.DTO
         public Season? Season { get; set; }
         public Tournament? Tournament { get; set; }
         public Options Options { get; set; } = new();
+        public TvLimit TvLimit { get; set; } = new();
     }
 }
