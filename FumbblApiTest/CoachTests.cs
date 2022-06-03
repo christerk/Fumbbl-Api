@@ -17,7 +17,7 @@ namespace FumbblApiTest
         [Fact]
         public async void ExistingGet()
         {
-            var coach = await _fumbbl.Coach.Get(3);
+            var coach = await _fumbbl.Coach.GetAsync(3);
 
             Assert.NotNull(coach);
             Assert.Equal(3, coach?.Id);
@@ -27,13 +27,13 @@ namespace FumbblApiTest
         [Fact]
         public async void NonExistingGet()
         {
-            await Assert.ThrowsAsync<Exception>(async () => await _fumbbl.Coach.Get(-1));
+            await Assert.ThrowsAsync<Exception>(async () => await _fumbbl.Coach.GetAsync(-1));
         }
 
         [Fact]
         public async void Search()
         {
-            var coachList = await _fumbbl.Coach.Search("christer");
+            var coachList = await _fumbbl.Coach.SearchAsync("christer");
 
             Assert.NotNull(coachList);
             Assert.Contains(coachList, c => c.Id == 3 && c.Name.Equals("Christer"));
@@ -42,7 +42,7 @@ namespace FumbblApiTest
         [Fact]
         public async void Teams()
         {
-            var teamList = await _fumbbl.Coach.Teams(3);
+            var teamList = await _fumbbl.Coach.TeamsAsync(3);
 
             Assert.NotNull(teamList);
             Assert.NotNull(teamList?.Teams);
