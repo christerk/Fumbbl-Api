@@ -15,9 +15,10 @@ namespace Fumbbl.Api.DTO
         public int? LeagueId { get; set; }
         public string? League { get; set; }
         public int Rerolls { get; set; }
-        public int Ruleset { get; set; }
+        public int RulesetId { get; set; }
         public string Status { get; set; } = string.Empty;
         public int TeamValue { get; set; }
+        public int CurrentTeamValue { get; set; }
         public int Treasury { get; set; }
         public TeamRecord Record { get; set; } = TeamRecord.Empty;
         public Dictionary<string, SpecialRule> SpecialRules { get; set; } = new();
