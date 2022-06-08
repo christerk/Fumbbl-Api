@@ -19,6 +19,8 @@ namespace Fumbbl.Api.DTO
         public string Status { get; set; } = string.Empty;
         public int TeamValue { get; set; }
         public int CurrentTeamValue { get; set; }
+        public int TeamValueReduction { get; set; }
+        public int SchedulingTeamValue { get; set; }
         public int Treasury { get; set; }
         public TeamRecord Record { get; set; } = TeamRecord.Empty;
         public Dictionary<string, SpecialRule> SpecialRules { get; set; } = new();
