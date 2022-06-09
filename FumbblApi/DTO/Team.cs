@@ -12,8 +12,10 @@ namespace Fumbbl.Api.DTO
         public string Race { get; set; } = string.Empty;
         public int DivisionId { get; set; }
         public string Division { get; set; } = string.Empty;
+        public bool Competitive { get; set; }
         public int? LeagueId { get; set; }
         public string? League { get; set; }
+        public int? LastOpponent { get; set; }
         public int Rerolls { get; set; }
         public int RulesetId { get; set; }
         public string Status { get; set; } = string.Empty;
