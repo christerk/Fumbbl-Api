@@ -33,5 +33,12 @@ namespace Fumbbl.Api.Components
             var response = await _httpClient.GetAsync($"{_apiBase}/coach/teams/{coachId}");
             return await Load<DTO.CoachTeams>(response);
         }
+
+        public async Task<DTO.CoachTeams?> LfgTeamsAsync(int coachId)
+        {
+            var response = await _httpClient.GetAsync($"{_apiBase}/coach/lfgteams/{coachId}");
+            return await Load<DTO.CoachTeams>(response);
+        }
+
     }
 }
