@@ -29,6 +29,7 @@ namespace Fumbbl.Api.DTO
         public IEnumerable<Player> Players { get; set; } = Enumerable.Empty<Player>();
         public string IsLfg { get; set; } = string.Empty;
         public string CanLfg { get; set; } = string.Empty;
+        public string LfgMode { get; set; } = string.Empty;
         public IEnumerable<RaceLogo> RaceLogos { get; set; } = Enumerable.Empty<RaceLogo>();
         public Season? Season { get; set; }
         public Tournament? Tournament { get; set; }

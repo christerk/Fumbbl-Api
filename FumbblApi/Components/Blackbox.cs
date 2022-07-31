@@ -21,5 +21,16 @@ namespace Fumbbl.Api.Components
             var response = await _httpClient.GetAsync($"{_apiBase}/blackbox/status");
             return await Load<DTO.BlackboxStatus>(response);
         }
+
+        public async Task ReportRoundAsync(DTO.BlackboxSchedulerResult result)
+        {
+            IList<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>()
+            {
+                { new KeyValuePair<string, string>("data", JsonSerializer.Serialize(result)) }
+            };
+            HttpContent content = new FormUrlEncodedContent(data);
+            await _httpClient.PostAsync($"{_apiBase}/blackbox/reportround", content);
+        }
+
     }
 }
