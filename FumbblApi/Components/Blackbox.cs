@@ -32,5 +32,11 @@ namespace Fumbbl.Api.Components
             await _httpClient.PostAsync($"{_apiBase}/blackbox/reportround", content);
         }
 
+        public async Task startActivationsAsync()
+        {
+            var response = await _httpClient.PostAsync($"{_apiBase}/blackbox/startActivations", null);
+        }
+
+
     }
 }
