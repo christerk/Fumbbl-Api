@@ -12,6 +12,7 @@ namespace Fumbbl.Api
     {
         public static IServiceCollection AddFumbbl(this IServiceCollection services)
         {
+            services.AddScoped<FumbblApi>();
             services.AddScoped<FumbblAuthHandler>();
             services.AddHttpClient<FumbblApi>()
                 .AddHttpMessageHandler<FumbblAuthHandler>();

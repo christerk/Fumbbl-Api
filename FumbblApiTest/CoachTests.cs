@@ -27,7 +27,8 @@ namespace FumbblApiTest
         [Fact]
         public async void NonExistingGet()
         {
-            await Assert.ThrowsAsync<Exception>(async () => await _fumbbl.Coach.GetAsync(-1));
+            var coach = await _fumbbl.Coach.GetAsync(-1);
+            Assert.Null(coach);
         }
 
         [Fact]

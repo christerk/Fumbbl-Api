@@ -42,5 +42,23 @@ namespace Fumbbl.Api.Components
             var result = JsonSerializer.Deserialize<T>(json, _jsonOptions);
             return result;
         }
+
+        protected async Task<Stream?> LoadStream(HttpResponseMessage? response)
+        {
+            if (response is null)
+            {
+                return default;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return default;
+            }
+
+            var stream = await response.Content.ReadAsStreamAsync();
+            return stream;
+        }
+
+
     }
 }

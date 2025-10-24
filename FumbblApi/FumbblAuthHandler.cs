@@ -1,4 +1,4 @@
-﻿using IdentityModel.Client;
+﻿using Duende.IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -19,9 +19,9 @@ namespace Fumbbl.Api
             _httpClient = new HttpClient();
             _logger = logger;
 
-            _baseUrl = config["Fumbbl:OAuth:base"];
-            _clientId = config["Fumbbl:OAuth:client_id"];
-            _clientSecret = config["Fumbbl:OAuth:client_secret"];
+            _baseUrl = config["Fumbbl:OAuth:base"] ?? string.Empty;
+            _clientId = config["Fumbbl:OAuth:client_id"] ?? string.Empty;
+            _clientSecret = config["Fumbbl:OAuth:client_secret"] ?? string.Empty;
 
             _accessTokenExpiry.Cancel();
         }
@@ -56,19 +56,22 @@ namespace Fumbbl.Api
 
         private async Task<CancellationTokenSource> Authenticate()
         {
-            var response = await _httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            var request = new ClientCredentialsTokenRequest
             {
                 Address = _baseUrl + "/oauth/token",
                 ClientId = _clientId,
                 ClientSecret = _clientSecret,
                 ClientCredentialStyle = ClientCredentialStyle.PostBody,
-            });
+                Method = HttpMethod.Post
+            };
+
+            var response = await _httpClient.RequestClientCredentialsTokenAsync(request);
 
             var tokenSource = new CancellationTokenSource();
 
             if (!response.IsError)
             {
-                _accessToken = response.AccessToken;
+                _accessToken = response.AccessToken ?? string.Empty;
                 tokenSource.CancelAfter(TimeSpan.FromSeconds(response.ExpiresIn - 10));
             }
             else
